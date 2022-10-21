@@ -1,8 +1,8 @@
-@font-face {
-    font-family: 'Zen Dots', cursive;
-    src: url('./fonts/ZenDots-Regular.ttf') format('truetype');
-    font-weight: 400;
-}
+/*@font-face {*/
+/*    font-family: 'Zen Dots', cursive;*/
+/*    src: url('./fonts/ZenDots-Regular.ttf') format('truetype');*/
+/*    font-weight: 400;*/
+/*}*/
 
 * {
     box-sizing: border-box;
