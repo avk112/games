@@ -1,0 +1,71 @@
+.tenzies {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+
+.tenziesGameblock {
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+    align-items: center;
+    width: 60%;
+    min-width: 600px;
+    height: 550px;
+    background-color: #EEBE33;
+    padding: 20px 0;
+}
+
+.upArea {
+    display: grid;
+    width: 100%;
+    grid-gap: 30px;
+    grid-template-columns: 30% 1fr;
+    /*background-color: #AE773E;*/
+    padding: 20px 30px;
+
+}
+
+.scoreBoard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 80px;
+    background-color: #f6c57e;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 14px -1px rgba(0,0,0,0.69);
+}
+
+.results {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.description {
+    text-align: center;
+}
+
+.cellsBlock {
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: repeat(5, minmax(100px, 1fr));
+    grid-auto-rows: 100px;
+    padding: 20px 0 40px 0;
+}
+
+.tenziesCell {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    /*width: 100%;*/
+    /*height: 300px;*/
+    /*background-color: #3fd21e;*/
+}
+
