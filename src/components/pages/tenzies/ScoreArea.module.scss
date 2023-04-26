@@ -1,0 +1,19 @@
+@use "../../../styles" as *;
+
+.score {
+  @include standartBlock($width:100%);
+  background-color: #f6c57e;
+  padding: 1.2em;
+  border-radius: 0.8em;
+  box-shadow: 0px 0px 14px -1px rgba(0,0,0,0.69);
+  gap: 1em;
+
+  @media screen and (max-device-width: $mobile){
+    width: 100%;
+  }
+
+  &__results {
+    @include standartBlock($direction: "row");
+    color: $footerColor;
+  }
+}

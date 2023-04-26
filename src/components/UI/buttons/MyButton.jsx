@@ -1,14 +1,14 @@
 import React from 'react';
-import classes from "./MyButton.module.css";
+import styles from "./MyButton.module.scss";
 
-const MyButton = (props) => {
+const MyButton = ({text="", click=()=>{}, disabled=false, backgroundColor="", width="100%"}) => {
     return (
-        <button onClick={props.click}
-                className={classes.myBtn}
-                disabled={props.disabled}
-                style={{backgroundColor: props.backgroundColor}}
+        <button onClick={click}
+                className={styles.myBtn}
+                disabled={disabled}
+                style={{backgroundColor: backgroundColor, width:width}}
         >
-            {props.text}
+            {text}
         </button>
     );
 };

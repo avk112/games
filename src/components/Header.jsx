@@ -3,71 +3,99 @@ import {Link, NavLink} from "react-router-dom";
 import logo from "../image/gamepad.png";
 import emptyCart from "../image/shopping-cart header.png";
 import fullCart from "../image/full-shopping-cart -header.png";
-import useGamesData from "../hooks/useGamesData";
 import {useDispatch, useSelector} from "react-redux";
-import {delUser} from "./redux/user";
+import {delUser} from "../redux/user";
 import useAuth from "../hooks/useAuth";
-import {cleanCart} from "./redux/cart";
+import {cleanCart} from "../redux/cart";
+import navData from "../data/navigations";
+import HiddenScreen from "./HiddenScreen";
+import menuImg from "../image/menu-list-grey.png";
 
 
 
 const Header = ()=> {
-    const selector = useSelector(state=>state);
-    const boughtGames = selector.cart.length
-    const isAuth = useAuth();
+    const cart = useSelector(state=>state.cart);
+    // const boughtGames = selector.cart.length
+    // const isAuth = useAuth();
+    const boughtGames=cart.length;
+    const isAuth=useSelector(state=>state.user.registered);
     const dispatch = useDispatch();
+    // const isAuth=true;
+    const [isVisibleMenu, setIsVisibleMenu] = useState(false);
 
+    const handleVisible = (visible=true)=> {
+        setIsVisibleMenu(visible);
+    }
 
-
-    const {getAllGames} = useGamesData();
-
-    const gamesBlock = getAllGames.map((game, index)=>{
+    const gamesBlock = navData.map(item=>{
+        const {id, name, url} = item;
         return (
-            <li key={index}><NavLink to={game.link}
-                                     className={({isActive})=> isActive ? "activeStyle" : "passiveStyle"}>
-                                {game.name}
-                            </NavLink></li>
+            <li key={id}>
+                <NavLink to={url} className={({isActive})=> isActive ? "activeStyle" : "passiveStyle"}>
+                    {name}
+                </NavLink>
+            </li>
         )
-    })
+    });
+
+    const hiddenGamesBlock = navData.map(item=>{
+        const {id, name, url} = item;
+        return (
+            <li key={id} onClick={()=>handleVisible(false)}>
+                <NavLink to={url} className={({isActive})=> isActive ? "activeStyle" : "passiveStyle"}>
+                    {name}
+                </NavLink>
+            </li>
+        )
+    });
+
+    const hiddenMenu = <div className="header__hiddenMenu">
+        <ul className="header__hiddenMenu__list">
+            {hiddenGamesBlock}
+        </ul>
+    </div>
 
 
-    const logBlock=()=>{
-     if (!isAuth) {
-         return <div className="nav--login"><Link to="/login">Log in</Link></div>
-     }
-     return <div onClick={()=>{dispatch(delUser()); dispatch(cleanCart())}} className="nav--login">Log out</div>
-    }
+    const loginBlock = !isAuth
+        ? <div className="header__nav__login"><Link to="/login">Log in</Link></div>
+        : <div onClick={()=>{dispatch(delUser()); dispatch(cleanCart())}} className="header__nav__login">Log out</div>;
 
-    const cartImg = ()=> {
-       if (boughtGames!==0) {
-           return <img src={fullCart}/>
-       }
-       return <img src={emptyCart}/>
-    }
+
+    const cartImg = boughtGames!==0
+        ? <img src={fullCart}/>
+        : <img src={emptyCart}/>;
 
     return (
         <header className="header">
-            <nav className="header-nav">
-                <div className="logo--block">
-                    <img src={logo} className="logo--img"/>
-                    <NavLink to="/"
-                             className={({isActive})=> isActive ? "activeStyle" : "passiveStyle"}
-                    >
-                        <h3>GameTech</h3>
-                    </NavLink>
+            <HiddenScreen
+                content={hiddenMenu}
+                handleVisible={handleVisible}
+                isVisible={isVisibleMenu}
+            />
+            <nav className="header__nav">
+                <div className="header__nav__logoBlock">
+                    <Link to="/">
+                        <img src={logo} className="header__nav__logoBlock__logoImg"/>
+                        <h3 className="header__nav__logoBlock__title">GameTech</h3>
+                    </Link>
                 </div>
-
-                <ul className="games--list">
+                <div className="header__nav__menuImg">
+                    <img
+                        src={menuImg} alt="menu"
+                        onClick={handleVisible}
+                    />
+                </div>
+                <ul className="header__nav__gamesList">
                     {gamesBlock}
                 </ul>
-
-                {logBlock()}
-
-                <div className="header-cart"><NavLink to="/cart"
-                                                      className={({isActive})=> isActive ? "activeStyle" : "passiveStyle"}
-                                            >
-                                                {cartImg()} {boughtGames}
-                                            </NavLink></div>
+                <>
+                    {loginBlock}
+                </>
+                <div className="header__nav__cart">
+                    <NavLink to="/cart" className={({isActive})=> isActive ? "activeStyle" : "passiveStyle"}>
+                        {cartImg} {boughtGames}
+                    </NavLink>
+                </div>
             </nav>
         </header>
     )

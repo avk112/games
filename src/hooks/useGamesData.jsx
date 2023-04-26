@@ -1,5 +1,5 @@
 import React from "react";
-import gamelist from "../gamelist";
+import gamelist from "../data/gamelist";
 
 const useGamesData = (name)=> {
     const getAllGames = gamelist;

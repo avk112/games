@@ -1,6 +1,7 @@
 {
   "name": "games",
   "version": "0.1.0",
+  "homepage": "https://avk112.github.io",
   "private": true,
   "dependencies": {
     "@numberworks/use-screenshot-hook": "^1.0.4",
