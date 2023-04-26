@@ -1,17 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.17c6738f.css",
-    "main.js": "/static/js/main.9504d65f.js",
-    "static/media/3.jpg": "/static/media/3.9e37ec7b3e9e43bd368e.jpg",
-    "static/media/4.jpg": "/static/media/4.aea84b1e9ab7eb48d357.jpg",
-    "static/media/1.jpg": "/static/media/1.dc628f788ae1415ca2ae.jpg",
-    "static/media/2.jpg": "/static/media/2.3a02b1bb334a9416d23f.jpg",
+    "main.css": "/static/css/main.99c273c6.css",
+    "main.js": "/static/js/main.1b96fc90.js",
+    "static/media/quizical.jpg": "/static/media/quizical.800e067dc5ce0e961fa0.jpg",
+    "static/media/rpc.jpg": "/static/media/rpc.f2c06ae40aeeef87e641.jpg",
+    "static/media/speed-typing.jpg": "/static/media/speed-typing.3cbf137c9cac5d26f448.jpg",
+    "static/media/memes.jpg": "/static/media/memes.ccc7f64edda643511657.jpg",
+    "static/media/tenz.jpg": "/static/media/tenz.6854ab5015b4fd78d018.jpg",
+    "static/media/10.png": "/static/media/10.900750d41c3df0baba35.png",
+    "static/media/3.png": "/static/media/3.cfc0da9c82584e42119a.png",
+    "static/media/7.png": "/static/media/7.6508032645761947f0f2.png",
     "index.html": "/index.html",
-    "main.17c6738f.css.map": "/static/css/main.17c6738f.css.map",
-    "main.9504d65f.js.map": "/static/js/main.9504d65f.js.map"
+    "main.99c273c6.css.map": "/static/css/main.99c273c6.css.map",
+    "main.1b96fc90.js.map": "/static/js/main.1b96fc90.js.map"
   },
   "entrypoints": [
-    "static/css/main.17c6738f.css",
-    "static/js/main.9504d65f.js"
+    "static/css/main.99c273c6.css",
+    "static/js/main.1b96fc90.js"
   ]
 }
