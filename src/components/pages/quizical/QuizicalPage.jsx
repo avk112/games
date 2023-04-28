@@ -15,7 +15,7 @@ const QuizicalPage = () => {
 
     return (
         <div className="gamePage">
-            {!gameState.win &&
+            {gameState.win &&
                 <>
                     <MyFireworks/>
                     <MyConfetti/>

@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import MyButton from "../UI/buttons/MyButton";
 import MyForm from "../MyForm";
 import {useDispatch} from "react-redux";
 import {addUser} from "../../redux/user";

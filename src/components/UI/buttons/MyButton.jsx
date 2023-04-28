@@ -1,12 +1,11 @@
 import React from 'react';
 import styles from "./MyButton.module.scss";
 
-const MyButton = ({text="", click=()=>{}, disabled=false, backgroundColor="", width="100%"}) => {
+const MyButton = ({text="", click=()=>{}, disabled=false, className={}}) => {
     return (
         <button onClick={click}
-                className={styles.myBtn}
+                className={`${styles.myBtn} ${className}`}
                 disabled={disabled}
-                style={{backgroundColor: backgroundColor, width:width}}
         >
             {text}
         </button>

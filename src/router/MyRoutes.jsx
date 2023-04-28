@@ -14,11 +14,8 @@ import Layout from "../components/Layout";
 
 
 const MyRoutes = ()=> {
-
-    // const isAuth = useSelector(state=>state.user.registered);
-    // console.log("Authorisation is " + isAuth);
     const isAuth=useSelector(state=>state.user.registered);
-    // const isAuth=true;
+
     return (
           isAuth ?
               <Routes>

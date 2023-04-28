@@ -466,6 +466,10 @@ code {
   padding: 4em;
   gap: 2em;
 
+  @media screen and (max-device-width: $tablet){
+    padding: 4em 2em;
+  }
+
   nav {
     width: 60%;
 
@@ -481,7 +485,7 @@ code {
 
   &__navList {
     column-count: 3;
-    column-width: 150px;
+    column-width: 120px;
     column-gap: 1em;
 
     li {

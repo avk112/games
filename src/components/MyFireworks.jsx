@@ -7,10 +7,10 @@ const MyFireworks = ({duration=5000}) => {
     let fxProps = {
         count: 1,
         interval: 500,
-        canvasWidth: 600,
-        canvasHeight: 600,
-        canvasTopOffset: 300,
-        canvasLeftOffset: 50,
+        canvasWidth: window.innerWidth*0.6,
+        canvasHeight: window.innerHeight,
+        canvasTopOffset: window.innerHeight*0.3,
+        canvasLeftOffset: 10,
         particleTimeout: 6000,
         colors: ['#7828c4', '#4CAF50', '#f8b304', '#d70606', '#8191c7'],
         calc: (props, i) => ({

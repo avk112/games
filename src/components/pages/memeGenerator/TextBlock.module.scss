@@ -1,0 +1,9 @@
+@use "../../../styles" as *;
+
+.textBlock {
+  position: absolute;
+  cursor: move;
+  z-index: 50;
+  color: beige;
+  text-shadow: 0px 0px 2px #000000;
+}

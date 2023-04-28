@@ -2,7 +2,6 @@ import React, {useEffect, useRef, useState} from 'react';
 import classes from './SpeedTyping.module.css';
 import {useSelector} from "react-redux";
 import Description from "./Description";
-import useConfetti from "../../../hooks/useConfetti";
 import ScoreBoard from "./ScoreBoard";
 import GameArea from "./GameArea";
 import TaskBoard from "./TaskBoard";
@@ -10,7 +9,7 @@ import useGame from "../../../hooks/speedTyping/useGame";
 
 const SpeedTypingPage = () => {
     const username = useSelector(state=>state.user.userName);
-    const {confettiBlock} = useConfetti();
+
 
     const { gameStatus, time, maxTime, wordsNumber,
             textToType, typedText, watchTypedText,
@@ -37,7 +36,6 @@ const SpeedTypingPage = () => {
 
     return (
         <div className={classes.gameBlock}>
-            {confettiBlock(gameStatus.win)}
 
             <div className={classes.mainBlock}>
 

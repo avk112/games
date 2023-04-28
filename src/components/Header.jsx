@@ -1,11 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import {Link, NavLink} from "react-router-dom";
 import logo from "../image/gamepad.png";
 import emptyCart from "../image/shopping-cart header.png";
 import fullCart from "../image/full-shopping-cart -header.png";
 import {useDispatch, useSelector} from "react-redux";
 import {delUser} from "../redux/user";
-import useAuth from "../hooks/useAuth";
 import {cleanCart} from "../redux/cart";
 import navData from "../data/navigations";
 import HiddenScreen from "./HiddenScreen";
@@ -15,12 +14,9 @@ import menuImg from "../image/menu-list-grey.png";
 
 const Header = ()=> {
     const cart = useSelector(state=>state.cart);
-    // const boughtGames = selector.cart.length
-    // const isAuth = useAuth();
     const boughtGames=cart.length;
     const isAuth=useSelector(state=>state.user.registered);
     const dispatch = useDispatch();
-    // const isAuth=true;
     const [isVisibleMenu, setIsVisibleMenu] = useState(false);
 
     const handleVisible = (visible=true)=> {

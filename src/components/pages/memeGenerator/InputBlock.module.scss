@@ -1,0 +1,30 @@
+@use "../../../styles" as *;
+
+.inputBlock {
+  @include standartBlock($direction:row);
+
+  &__input {
+    width: 80%;
+    font-size: 1em;
+    box-sizing: border-box;
+    padding: 0.3em;
+    border: 1px solid $titleColor;
+    border-radius: 5px;
+
+    &:focus-visible {
+      outline: 1px solid $mainColor;
+      border: 1px solid white;
+    }
+  }
+
+  &__img {
+    width: 8%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: all 0.3s linear;
+
+    &:hover {
+      filter: brightness(1.4);
+    }
+  }
+}

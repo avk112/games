@@ -1,36 +1,44 @@
 import React from 'react';
-import classes from "./MemeGenerator.module.css";
-import upFont from "../../../image/memeGenerator/increase-font-size.png";
-import downFont from "../../../image/memeGenerator/decrease-font-size.png";
+import classes from "./InputBlock.module.scss";
+import upFontImg from "../../../image/memeGenerator/increase-font-size.png";
+import downFontImg from "../../../image/memeGenerator/decrease-font-size.png";
+import {useDispatch, useSelector} from "react-redux";
+import {changeSize, changeText} from "../../../redux/memeGenerator/linesSlice";
 
-const InputBlock = ({meme, handleInput, changeTextSize}) => {
+const InputBlock = ({inputId}) => {
+    const text = useSelector(state=>state.memesLines[inputId].text);
+    const dispatch = useDispatch();
+
+
+    const handleInput = (event)=> {
+        const newText = event.target.value;
+        dispatch(changeText({text: newText, id:inputId}));
+    }
+
+    const changeTextSize = (iterate)=> {
+        dispatch(changeSize({id: inputId, number: iterate}));
+    }
+
+
     return (
-        <div className={classes.memeInputBlock}>
-            {meme.texts.map((text, index)=>{
-                return (
-                    <div className={classes.memeInputLine}
-                         key={index}>
-                        <input
-                            className={classes.memeInput}
-                            id={text.id}
-                            value={text.text}
-                            placeholder="Enter text"
-                            onChange={handleInput}
-                        />
-                        <img src={upFont}
-                             id={text.id}
-                             onClick={(e)=>changeTextSize(e, +1)}
-                             className={classes.fontImg}
-                        />
-                        <img src={downFont}
-                             id={text.id}
-                             onClick={(e)=>changeTextSize(e,-1)}
-                             className={classes.fontImg}
-                        />
-                    </div>
-                )
-            })}
-        </div>
+            <div className={classes.inputBlock}>
+                <input
+                    className={classes.inputBlock__input}
+                    value={text}
+                    placeholder="Enter text"
+                    onChange={handleInput}
+                />
+                <img src={upFontImg}
+                     onClick={()=>changeTextSize( 1)}
+                     title="Upsize font"
+                     className={classes.inputBlock__img}
+                />
+                <img src={downFontImg}
+                     onClick={()=>changeTextSize(-1)}
+                     title="Downsize font"
+                     className={classes.inputBlock__img}
+                />
+            </div>
     )
 };
 

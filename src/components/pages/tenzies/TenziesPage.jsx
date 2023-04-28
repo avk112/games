@@ -16,7 +16,7 @@ const TenziesPage = () => {
 
     return (
         <div className="gamePage">
-            {gameState.finished &&
+            {(gameState.finished && !gameState.record) &&
                 <MyFireworks/>
             }
             {gameState.record &&
@@ -24,7 +24,7 @@ const TenziesPage = () => {
             }
 
             <h1 className="gamePage__title">
-                Welcome to tenzies, {userName}!
+                Welcome to Tenzies, {userName}!
             </h1>
             <div className="gamePage__gameArea">
                 <section className="gamePage__gameArea__left">

@@ -1,6 +1,7 @@
+// eslint-disable-next-line no-unused-vars
 import React, {useEffect} from 'react';
 import {useState} from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 const useTimer = (startPosition=0, gap=1, delay=1000) => {
     const [time, setTime] = useState(startPosition);

@@ -5,7 +5,7 @@ import useTimer from "../../../hooks/useTimer";
 
 const ScoreArea = ({gameState, setGameState}) => {
     const {time,stopTimer, startTimer, clearTimer} = useTimer();
-    const bestTime=localStorage.getItem("tenziesBestTime");
+    const bestTime=localStorage.getItem("tenziesBestTime") ? localStorage.getItem("tenziesBestTime") : 0;
 
     useEffect(()=>{
         if(gameState.started && !gameState.finished){
