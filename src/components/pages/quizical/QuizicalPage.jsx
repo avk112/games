@@ -3,7 +3,6 @@ import {useSelector} from "react-redux";
 import UniversalDescription from "../../UniversalDescription";
 import defaultGameState from "../../../data/quizical/defaultGameState";
 import descriptionText from "../../../data/quizical/description";
-import MyFireworks from "../../MyFireworks";
 import MyConfetti from "../../MyConfetti";
 import ScoreArea from "./ScoreArea";
 import QuestionsArea from "./QuestionsArea";
@@ -16,10 +15,7 @@ const QuizicalPage = () => {
     return (
         <div className="gamePage">
             {gameState.win &&
-                <>
-                    <MyFireworks/>
-                    <MyConfetti/>
-                </>
+                <MyConfetti/>
             }
 
             <h1 className="gamePage__title">

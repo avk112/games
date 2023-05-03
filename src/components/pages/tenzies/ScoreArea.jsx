@@ -13,7 +13,7 @@ const ScoreArea = ({gameState, setGameState}) => {
         }
          else if(gameState.finished){
             stopTimer();
-             if(time<bestTime){
+             if(time<bestTime || bestTime<=0){
                 setGameState(prev=>({...prev, record: true}));
                 localStorage.setItem("tenziesBestTime", time);
             }

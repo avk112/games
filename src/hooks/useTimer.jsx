@@ -1,10 +1,8 @@
-// eslint-disable-next-line no-unused-vars
-import React, {useEffect} from 'react';
-import {useState} from "react";
-// import PropTypes from "prop-types";
+import React, {useState, useEffect} from 'react';
 
-const useTimer = (startPosition=0, gap=1, delay=1000) => {
-    const [time, setTime] = useState(startPosition);
+
+const useTimer = (startPosition=0, gap=1, whenCountdownEnded=()=>{return "empty"}, delay=1000) => {
+    const [time, setTime] = useState();
     const [timerOn, setTimerOn] = useState(false);
     const [timeoutStamp, setTimeoutStamp] = useState("");
 
@@ -30,10 +28,22 @@ const useTimer = (startPosition=0, gap=1, delay=1000) => {
     const clearTimer = ()=> {
         stopTimer();
         setTime(startPosition);
-    }
+    };
 
     useEffect(()=>{
-         timerOn && enableTimer();
+      clearTimer();
+    }, [startPosition]);
+
+    useEffect(()=>{
+         if(timerOn){
+             if(time!==0){
+                 enableTimer();
+             }
+             if(time===0) {
+                 whenCountdownEnded()==="empty" ? stopTimer() :  whenCountdownEnded();
+
+             }
+         }
     },[time]);
 
 

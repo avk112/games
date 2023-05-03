@@ -1,24 +1,46 @@
-import React from 'react';
-import classes from "./SpeedTyping.module.css";
-import ButtonBlock from "./ButtonBlock";
+import React, {useEffect, useState} from 'react';
+import textsArray from "../../../data/speedTyping/textsList";
+import MyButton from "../../UI/buttons/MyButton";
+import defaultGameState from "../../../data/speedTyping/defaultGameState";
+import InputBlock from "./InputBlock";
+import TaskBlock from "./TaskBlock";
 
-const GameArea = ({myRef, typedText, handleTyping, gameStatus, getNewText, startGame}) => {
+
+const GameArea = ({gameState, setGameState}) => {
+    const [textToType, setTextToType] = useState("");
+
+    const getNewText = ()=> {
+       gameState.started && setGameState(defaultGameState);
+
+        const length = textsArray.length;
+        const i = Math.floor(Math.random()*(length+1-1));
+        const randomText = textsArray[i];
+
+        return randomText===textToType ? getNewText() : setTextToType(randomText);
+    };
+
+
+    useEffect(()=>{
+        getNewText();
+    }, []);
+
+
+
     return (
-        <section className={classes.gameArea}>
-                    <textarea
-                        ref={myRef}
-                        className={classes.input}
-                        type="text"
-                        value={typedText}
-                        onChange={handleTyping}
-                        disabled={gameStatus.disableInput}
-                    />
-            <ButtonBlock
-                getNewText={getNewText}
-                startGame={startGame}
-                disabled={gameStatus.disableButton}
+        <>
+            <TaskBlock
+                textToType={textToType}
             />
-        </section>
+            <InputBlock
+                gameState={gameState}
+                setGameState={setGameState}
+                textToType={textToType}
+            />
+            <MyButton
+                text="New Task"
+                click={getNewText}
+            />
+        </>
     );
 };
 

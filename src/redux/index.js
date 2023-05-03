@@ -3,6 +3,7 @@ import cartReducer from "./cart";
 import userReducer from "./user";
 import quizicalScoreReducer from "./quizical/scoreSlice";
 import memeGeneratorLinesReducer from "./memeGenerator/linesSlice";
+import speedTypingScoreReducer from "./speedTyping/scoreSlice";
 
 const store = configureStore({
     reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
         cart: cartReducer,
         quizicalScore: quizicalScoreReducer,
         memesLines: memeGeneratorLinesReducer,
+        speedTypingScore: speedTypingScoreReducer,
     }
 })
 

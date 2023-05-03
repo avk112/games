@@ -1,72 +1,44 @@
-import React, {useEffect, useRef, useState} from 'react';
-import classes from './SpeedTyping.module.css';
+import React, {useState} from 'react';
 import {useSelector} from "react-redux";
-import Description from "./Description";
-import ScoreBoard from "./ScoreBoard";
+import ScoreArea from "./ScoreArea";
+import MyConfetti from "../../MyConfetti";
+import UniversalDescription from "../../UniversalDescription";
+import descriptionText from "../../../data/speedTyping/description";
+import defaultGameState from "../../../data/speedTyping/defaultGameState";
 import GameArea from "./GameArea";
-import TaskBoard from "./TaskBoard";
-import useGame from "../../../hooks/speedTyping/useGame";
 
 const SpeedTypingPage = () => {
-    const username = useSelector(state=>state.user.userName);
+    const userName = useSelector(state=>state.user.userName);
+    const [gameState, setGameState] = useState(defaultGameState);
 
-
-    const { gameStatus, time, maxTime, wordsNumber,
-            textToType, typedText, watchTypedText,
-            myRef, handleTyping, getNewText, startGame,
-            gameIsRunning, gameNotRunning, gameFinished} = useGame();
-
-    useEffect(()=> {
-        watchTypedText();
-    }, [typedText])
-
-    useEffect(()=>{
-        if(gameStatus.started && !gameStatus.win && time<maxTime){
-            gameIsRunning();
-        }
-        else if(gameStatus.win || time===maxTime){
-            gameFinished();
-        }
-        else if(!gameStatus.started){
-            gameNotRunning();
-        }
-
-    }, [gameStatus.started, gameStatus.finished, time])
 
 
     return (
-        <div className={classes.gameBlock}>
+        <div className="gamePage">
+            {gameState.record &&
+                <MyConfetti/>
+            }
 
-            <div className={classes.mainBlock}>
-
-                <div className={classes.header}>
-                    <h1>Welcome to Speed Typing, {username}!</h1>
-                </div>
-
-                <section className={classes.topBlock}>
-                   <ScoreBoard
-                       maxTime={maxTime}
-                       time={time}
-                       wordsNumber={wordsNumber}
-                   />
-                   <Description
-                        status={gameStatus.status}
-                   />
+            <h1 className="gamePage__title">
+                Welcome to Speed Typing, {userName}!
+            </h1>
+            <div className="gamePage__gameArea">
+                <section className="gamePage__gameArea__left">
+                    <ScoreArea
+                        gameState={gameState}
+                        setGameState={setGameState}
+                    />
+                    <UniversalDescription
+                        gameState={gameState}
+                        text={descriptionText}
+                    />
                 </section>
-
-                <TaskBoard
-                    textToType={textToType}
-                />
-
-                <GameArea
-                    myRef={myRef}
-                    typedText={typedText}
-                    handleTyping={handleTyping}
-                    gameStatus={gameStatus}
-                    getNewText={getNewText}
-                    startGame={startGame}
-                />
-
+                <section className="gamePage__gameArea__right">
+                    <GameArea
+                        gameState={gameState}
+                        setGameState={setGameState}
+                    />
+                </section>
             </div>
         </div>
     );

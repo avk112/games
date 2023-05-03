@@ -19,25 +19,32 @@ const TextBlock = ({inputId,myRef}) => {
     const [memeLine, setMemeLine]=useState(new Line);
 
     const startDrag = (event)=> {
-        event.dataTransfer.effectAllowed="move";
-        const saldoX = event.pageX -(window.innerWidth-myRef.current.offsetWidth)/2-event.target.offsetLeft;
-        const saldoY = event.pageY -myRef.current.offsetHeight -event.target.offsetTop;
+        if(event.type==="dragstart"){
+            event.dataTransfer.effectAllowed = "move";
+        }
+        const eventX = event.type==="dragstart" ? event.pageX :event.touches[0].screenX;
+        const eventY = event.type==="dragstart" ? event.pageY :event.touches[0].screenY;
+        const saldoX = eventX -(window.innerWidth-myRef.current.offsetWidth)/2-event.target.offsetLeft;
+        const saldoY = eventY -myRef.current.offsetHeight -event.target.offsetTop;
 
         setMemeLine(prev=> ({...prev, saldoX: saldoX, saldoY: saldoY}));
     }
+
 
     const endDrag = (event)=> {
         const marginLeftX = (window.innerWidth-myRef.current.offsetWidth)/2;
         const marginTopY = myRef.current.offsetHeight;
         const saldoX = memeLine.saldoX;
         const saldoY = memeLine.saldoY;
-        if( event.pageX  > marginLeftX + saldoX &&
-            event.pageX < marginLeftX+myRef.current.offsetWidth-(event.target.offsetWidth-saldoX) &&
-            event.pageY > marginTopY + saldoY &&
-            event.pageY < marginTopY + myRef.current.offsetHeight - (event.target.offsetHeight-saldoY)
+        const eventX = event.type==="dragend" ? event.pageX :event.changedTouches[0].screenX;
+        const eventY = event.type==="dragend" ? event.pageY :event.changedTouches[0].screenY;
+        if( eventX  > marginLeftX + saldoX &&
+            eventX < marginLeftX+myRef.current.offsetWidth-(event.target.offsetWidth-saldoX) &&
+            eventY > marginTopY + saldoY &&
+            eventY < marginTopY + myRef.current.offsetHeight - (event.target.offsetHeight-saldoY)
         ) {
-            const coordX = event.pageX - marginLeftX - saldoX;
-            const coordY = event.pageY - marginTopY - saldoY;
+            const coordX = eventX - marginLeftX - saldoX;
+            const coordY = eventY - marginTopY - saldoY;
 
             setMemeLine(prev => ({...prev, x: coordX, y: coordY}));
         }
@@ -49,7 +56,9 @@ const TextBlock = ({inputId,myRef}) => {
             <span
                 draggable={true}
                 onDragStart={startDrag}
+                onTouchStart={startDrag}
                 onDragEnd={endDrag}
+                onTouchMove={endDrag}
                 style={{top: memeLine.y+"px", left: memeLine.x+"px", fontSize: fontSize}}
                 className={classes.textBlock}
             >

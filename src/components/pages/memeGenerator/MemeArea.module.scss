@@ -9,6 +9,7 @@
     display: flex;
     max-width: 100%;
     box-shadow: 0px 0px 9px 5px rgba(28, 20, 1, 0.2);
+    touch-action: pinch-zoom;
 
     img {
       max-width: 100%;
