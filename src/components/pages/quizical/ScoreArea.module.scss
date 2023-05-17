@@ -18,6 +18,13 @@
 
   &__results {
     @include standartBlock($direction: "row");
-    color: $footerColor;
+
+    &__title {
+      @include scoreTitle();
+    }
+
+    &__count {
+      @include scoreCount();
+    }
   }
 }

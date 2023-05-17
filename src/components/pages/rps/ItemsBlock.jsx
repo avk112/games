@@ -1,24 +1,51 @@
-import React from 'react';
-import classes from "./RPS.module.css";
+import React, {useEffect, useState} from 'react';
+import classes from "./ItemsBlock.module.scss";
+import items from "../../../data/rps/itemsToChoose";
 
-const ItemsBlock = ({dices,getItem,itemBeforeTop}) => {
-    const gradient = {
-        clicked: "linear-gradient(to bottom, #23C33A 0%, #49DF4A 55%, #28E123 100%)",
-        standart: "linear-gradient(to bottom, #2880E6 0%, #3BACD0 55%, #277DE1 100%)"
-    }
+const ItemsBlock = ({enableToChoose, makeOpponentChoice}) => {
+    const [dices, setDices] = useState(items);
+    const [itemBeforeTop, setItemBeforeTop] = useState(0);
+
+
+    const handleClick = (id, isDisabled)=> {
+        if(!isDisabled && enableToChoose){
+            const newId = Number(id);
+            const newDices = dices.map(item=>{
+                return item.number===newId ? {...item, clicked: true, disabled: true} : {...item, disabled: true};
+            });
+
+            setDices(newDices);
+            makeOpponentChoice(newId);
+        }
+    };
+
+    useEffect(()=>{
+        if(enableToChoose) {
+            setItemBeforeTop("-110%");
+        }
+        if(!enableToChoose) {
+            setDices(items);
+            setItemBeforeTop(0);
+        }
+    }, [enableToChoose]);
+
+
 
     return (
         <div className={classes.itemsBlock}>
-            {dices.map((item, index)=>{
-                const color = item.clicked ? gradient.clicked : gradient.standart;
-
-                return <div key={index}
-                            className={classes.item}
-                            onClick={()=>getItem(item.title, item.disabled)}
-                            style={{background: color}}>
-                    <div className={classes.itemBefore} style={{top: itemBeforeTop}}></div>
-                    <img src={item.img}/>
-                </div>
+            {dices.length>0 && dices.map((item, index)=>{
+                const background = item.clicked ? "clicked" : "standart";
+                return(
+                    <div key={index}
+                            className={classes.itemsBlock__item + " "+ classes[background]}
+                    >
+                        <div className={classes.itemsBlock__item__before} style={{top: itemBeforeTop}}> </div>
+                        <img
+                            src={item.img}
+                             onClick={()=>handleClick(item.number, item.disabled)}
+                        />
+                    </div>
+                )
             })}
         </div>
     );

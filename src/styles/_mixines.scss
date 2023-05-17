@@ -19,3 +19,13 @@
   color: $color;
   text-align: center;
 }
+
+@mixin scoreTitle () {
+  color: $scoreTitle;
+  text-shadow: 0px 0px 5px #4744EB;
+}
+
+@mixin scoreCount () {
+  color: $navColor;
+  text-shadow: 0px 0px 5px #f3f3fa;
+}

@@ -1,0 +1,105 @@
+@use "../../../styles" as *;
+
+.card {
+  @include standartBlock($justify: center);
+  width: 25vw;
+  height: 25vw;
+  border-radius: 1.5em;
+  box-shadow: 0px 0px 5px 1px #E8FFF8;
+  z-index: 50;
+
+  @media screen and (max-device-width: $tablet) {
+    width: 34vw;
+    height: 34vw;
+  }
+
+  @media screen and (max-device-width: $mobile) {
+    width: 42vw;
+    height: 42vw;
+  }
+
+  img {
+    width: 80%;
+    object-fit: cover;
+  }
+}
+
+.userCard {
+  background: linear-gradient(to bottom, #4277E6 0%, #77D3F3 50%, #4277E6 100%);
+}
+
+.opponentCard {
+  background: linear-gradient(to bottom, #FDFF53 0%, #FBFFA2 50%, #FDFF53 100%);
+}
+
+.appearenceAnimation {
+  animation: appearence 1s linear;
+}
+
+.userAnimation {
+  animation: movingUser 2s ease-in-out;
+}
+
+.opponentAnimation {
+  animation: movingOpponent 2s ease-in-out;
+}
+
+@keyframes appearence {
+  0% {
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes movingUser {
+  0% {
+    right: 0;
+    transform: translate(0);
+    background: linear-gradient(to bottom, #3DDC44 0%, #7FFF88 50%, #3DDC44 100%);
+    z-index: 51;
+  }
+
+  50% {
+    right: -100%;
+    transform: translate(-100%);
+    background: linear-gradient(to bottom, #3DDC44 0%, #7FFF88 50%, #3DDC44 100%);
+    z-index: 51;
+  }
+
+  100% {
+    right: -100%;
+    transform: translate(-100%);
+    background: linear-gradient(to bottom, #3DDC44 0%, #7FFF88 50%, #3DDC44 100%);
+    z-index: 51;
+  }
+}
+
+@keyframes movingOpponent {
+  0% {
+    left: 0;
+    transform: translate(0);
+    background: linear-gradient(to bottom, #DC593D 0%, #FFA481 50%, #DC593D 100%);
+    z-index: 51;
+  }
+
+  50% {
+    left: -100%;
+    transform: translate(100%);
+    background: linear-gradient(to bottom, #DC593D 0%, #FFA481 50%, #DC593D 100%);
+    z-index: 51;
+  }
+
+  100% {
+    left: -100%;
+    transform: translate(100%);
+    background: linear-gradient(to bottom, #DC593D 0%, #FFA481 50%, #DC593D 100%);
+    z-index: 51;
+  }
+}

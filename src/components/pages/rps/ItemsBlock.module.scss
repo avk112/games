@@ -1,0 +1,75 @@
+@use "../../../styles" as *;
+
+
+.itemsBlock {
+  @include standartBlock();
+  width: 8vw;
+  gap: 0.8em;
+
+  @media screen and (max-device-width: $tablet) {
+    width: 10vw;
+  }
+
+  @media screen and (max-device-width: $mobile) {
+    flex-direction: row;
+    width: 50vw;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  &__item {
+    @include standartBlock($justify: center);
+    width: 100%;
+    height: 7.5vw;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 1;
+    overflow: hidden;
+    box-shadow: 0px 0px 8px 0px #1F39FF;
+
+    @media screen and (max-device-width: $tablet) {
+      height: 10vw;
+    }
+
+    @media screen and (max-device-width: $mobile) {
+      height: 15vw;
+    }
+
+    &__before  {
+      position: absolute;
+      content: "";
+      top:0;
+      left: 0;
+      width: 100%;
+      height: 8vw;
+      background-color: #696767;
+      z-index: 2;
+      opacity: 0.6;
+      transition: all 0.3s linear;
+      cursor: auto;
+
+      @media screen and (max-device-width: $tablet) {
+        height: 10vw;
+      }
+
+      @media screen and (max-device-width: $mobile) {
+        height: 15vw;
+      }
+    }
+
+    img {
+      width: 60%;
+      object-fit: cover;
+    }
+  }
+}
+
+.clicked {
+  background: linear-gradient(to bottom, #23C33A 0%, #49DF4A 55%, #28E123 100%)
+}
+
+.standart {
+  background: linear-gradient(to bottom, #2880E6 0%, #3BACD0 55%, #277DE1 100%);
+}

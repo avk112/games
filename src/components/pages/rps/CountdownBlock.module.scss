@@ -1,0 +1,18 @@
+@use "../../../styles" as *;
+
+.coverBlock {
+  @include standartBlock($justify: center);
+  position: absolute;
+  top: 0;
+  height: 100%;
+  z-index: 51;
+  display: flex;
+  font-size: 15em;
+  color: #FFFFFF;
+  opacity: 1;
+  text-shadow: 0px 0px 15px #4744EB;
+
+  @media screen and (max-device-width: $mobile) {
+    height: 74%;
+  }
+}

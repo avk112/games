@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react';
-import styles from "./ScoreArea.module.scss";
+import classes from "./ScoreArea.module.scss";
 import useTimer from "../../../hooks/useTimer";
 
 
@@ -26,14 +26,14 @@ const ScoreArea = ({gameState, setGameState}) => {
 
 
     return (
-        <div className={styles.score}>
-            <div className={styles.score__results}>
-                <span>Best result:</span>
-                <span> {bestTime} sec</span>
+        <div className={classes.score}>
+            <div className={classes.score__results}>
+                <span className={classes.score__results__title}>Best result:</span>
+                <span className={classes.score__results__count}> {bestTime} sec</span>
             </div>
-            <div className={styles.score__results}>
-                <span>Your result:</span>
-                <span>{time} sec</span>
+            <div className={classes.score__results}>
+                <span className={classes.score__results__title}>Your result:</span>
+                <span className={classes.score__results__count}>{time} sec</span>
             </div>
         </div>
     );

@@ -1,0 +1,40 @@
+@use "../../../styles" as *;
+
+.scoreBlock {
+  @include standartBlock($direction: row, $width: 44%);
+  font-size: 1.3em;
+  font-weight: 600;
+
+  &__name {
+    @include scoreTitle();
+    width: 84%;
+    text-align: center;
+  }
+
+  &__count {
+    @include scoreCount();
+  }
+}
+
+.reverseOrder {
+  order: 2;
+}
+
+
+.rotationAnimation{
+  animation: rotation 1s linear;
+}
+
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg) scale(120%);
+  }
+  50% {
+    transform: rotate(720deg) scale(220%);
+  }
+  100% {
+    transform: scale(100%);
+
+  }
+}

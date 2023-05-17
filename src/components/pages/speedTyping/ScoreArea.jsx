@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import useTimer from "../../../hooks/useTimer";
-import styles from "./ScoreArea.module.scss";
+import classes from "./ScoreArea.module.scss";
 import {useSelector} from "react-redux";
 
 const ScoreArea = ({gameState, setGameState}) => {
@@ -28,14 +28,14 @@ const ScoreArea = ({gameState, setGameState}) => {
 
 
     return (
-        <div className={styles.score}>
-            <div className={styles.score__results}>
-                <span>Correct words:</span>
-                <span> {typedWords}/{wordsToType}</span>
+        <div className={classes.score}>
+            <div className={classes.score__results}>
+                <span className={classes.score__results__title}>Correct words:</span>
+                <span className={classes.score__results__count}> {typedWords}/{wordsToType}</span>
             </div>
-            <div className={styles.score__results}>
-                <span>Time remained:</span>
-                <span>{time} sec</span>
+            <div className={classes.score__results}>
+                <span className={classes.score__results__title}>Time remained:</span>
+                <span className={classes.score__results__count}>{time} sec</span>
             </div>
         </div>
     );

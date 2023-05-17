@@ -4,6 +4,7 @@ import userReducer from "./user";
 import quizicalScoreReducer from "./quizical/scoreSlice";
 import memeGeneratorLinesReducer from "./memeGenerator/linesSlice";
 import speedTypingScoreReducer from "./speedTyping/scoreSlice";
+import rpsScoreReducer from "./rps/scoreSlice";
 
 const store = configureStore({
     reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
         quizicalScore: quizicalScoreReducer,
         memesLines: memeGeneratorLinesReducer,
         speedTypingScore: speedTypingScoreReducer,
+        rpsScore: rpsScoreReducer,
     }
 })
 

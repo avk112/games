@@ -23,5 +23,13 @@
     @media screen and (max-device-width: $mobile){
       font-size: 1em;
     }
+
+    &__title {
+      @include scoreTitle();
+    }
+
+    &__count {
+      @include scoreCount();
+    }
   }
 }

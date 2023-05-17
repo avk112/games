@@ -3,10 +3,7 @@ import styles from "./CellsArea.module.scss";
 import MyButton from "../../UI/buttons/MyButton";
 
 
-const CellsArea = ({gameState,setGameState, defaultGameState }) => {
-    const cellsCount = 10;
-    const imgCount=10;
-
+const CellsArea = ({gameState,setGameState, defaultGameState}) => {
     const buttonText = {
         roll: "Roll",
         newGame: "New Game"
@@ -22,8 +19,8 @@ const CellsArea = ({gameState,setGameState, defaultGameState }) => {
 
     const getNewNumbersArray = ()=> {
         const arr=[];
-        for(let i=cellsCount; i>0; i-=1 ){
-            const numb = Math.floor(Math.random()*(imgCount))+1;
+        for(let i=gameState.cellsCount; i>0; i-=1 ){
+            const numb = Math.floor(Math.random()*(gameState.imgCount))+1;
             arr.push({id: i, num: numb, isClicked: false});
         }
         return setNumbersArray(arr);
@@ -44,7 +41,7 @@ const CellsArea = ({gameState,setGameState, defaultGameState }) => {
             const clickedCells = newNumbersArray.filter(item=>item.isClicked).length;
 
             setNumbersArray(newNumbersArray);
-            if(clickedCells===cellsCount){
+            if(clickedCells===gameState.cellsCount){
                     setGameState(prev => ({...prev, finished: true}));
                     setButton(buttonText.newGame)
                 }
@@ -62,7 +59,7 @@ const CellsArea = ({gameState,setGameState, defaultGameState }) => {
         }
         else {
             const array= numbersArray.map((numb)=>{
-                return !numb.isClicked ? ({...numb, num: Math.floor(Math.random()*(imgCount))+1}) : numb;
+                return !numb.isClicked ? ({...numb, num: Math.floor(Math.random()*(gameState.imgCount))+1}) : numb;
             })
             setNumbersArray(array);
         }
@@ -98,6 +95,51 @@ const CellsArea = ({gameState,setGameState, defaultGameState }) => {
             />
         </>
     );
+//     const [rolling, setRolling] = useState();
+//     const [clickedCells, setClickedCells] = useState(0);
+//     const rollCells = ()=> {
+//         setRolling(Date.now());
+//     };
+//
+//
+//     const cellsBlock = ()=> {
+//         let arr=[];
+//         for(let i=0; i<10; i++){
+//             arr.push(<CellBlock
+//                 key={i}
+//                 gameState={gameState}
+//                 setGameState={setGameState}
+//                 rolling={rolling}
+//                 setClickedCells={setClickedCells}
+//             />)
+//         }
+//         return arr;
+//     };
+//
+//
+//     useEffect(()=> {
+//         if(gameState.started &&!gameState.finished){
+//             if(clickedCells===gameState.cellsCount){
+//                 setGameState(prev => ({...prev, finished: true}));
+//                 setButton(buttonText.newGame)
+//             }
+//             if(clickedCells===0){
+//                 setGameState(defaultGameState)
+//             }
+//         }
+//     }, [clickedCells])
+//
+// return (
+//         <>
+//             <div className={styles.cells}>
+//                  {cellsBlock()}
+//             </div>
+//             <MyButton
+//                 text={button}
+//                 click={rollCells}
+//             />
+//         </>
+//     );
 };
 
 export default CellsArea;

@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import styles from "./ScoreArea.module.scss";
+import classes from "./ScoreArea.module.scss";
 import {useSelector} from "react-redux";
 
 const ScoreArea = ({setGameState}) => {
@@ -14,14 +14,14 @@ const ScoreArea = ({setGameState}) => {
 
 
     return (
-        <div className={styles.score}>
-            <div className={styles.score__results}>
-                <span>Progress:</span>
-                <span> {(totalAnswers/totalQuestions)*100}%</span>
+        <div className={classes.score}>
+            <div className={classes.score__results}>
+                <span className={classes.score__results__title}>Progress:</span>
+                <span className={classes.score__results__count}> {(totalAnswers/totalQuestions)*100}%</span>
             </div>
-            <div className={styles.score__results}>
-                <span>Your result:</span>
-                <span> {correctAnswers}/ {totalQuestions}</span>
+            <div className={classes.score__results}>
+                <span className={classes.score__results__title}>Your result:</span>
+                <span className={classes.score__results__count}> {correctAnswers}/ {totalQuestions}</span>
             </div>
         </div>
     );

@@ -1,0 +1,14 @@
+@use "../../../styles" as *;
+
+.gameArea {
+  @media screen and (max-device-width: $tablet) {
+    flex-direction: column;
+    gap: 2em;
+  }
+
+  &__left, &__right {
+    @media screen and (max-device-width: $tablet) {
+      width: 100%;
+    }
+  }
+}

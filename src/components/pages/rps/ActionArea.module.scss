@@ -1,0 +1,12 @@
+@use "../../../styles" as *;
+
+
+
+.actionArea {
+  @include standartBlock($direction:row);
+  margin: 0 0 2em 0;
+
+  @media screen and (max-device-width: $mobile) {
+    padding: 0 0 6em 0;
+  }
+}
