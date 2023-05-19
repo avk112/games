@@ -14,7 +14,7 @@ import menuImg from "../image/menu-list-grey.png";
 
 const Header = ()=> {
     const cart = useSelector(state=>state.cart);
-    const boughtGames=cart.length;
+    const boughtGames=Object.keys(cart).length;
     const isAuth=useSelector(state=>state.user.registered);
     const dispatch = useDispatch();
     const [isVisibleMenu, setIsVisibleMenu] = useState(false);

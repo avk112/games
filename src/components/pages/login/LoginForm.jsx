@@ -1,13 +1,15 @@
 import React from 'react';
-import MyButton from "./UI/buttons/MyButton";
+import classes from "./LoginForm.module.scss";
+import MyButton from "../../UI/buttons/MyButton";
 
-const MyForm = (props) => {
+const LoginForm = (props) => {
     return (
-        <form className="login--form" onSubmit={props.submitForm}>
+        <form className={classes.loginForm} onSubmit={props.submitForm}>
              <input
-                className="login--form--input"
+                className={classes.loginForm__input}
                 type="text"
                 name="userName"
+                maxLength={10}
                 required={true}
                 placeholder="Enter your login name"
                 value={props.inputData.userName}
@@ -15,7 +17,7 @@ const MyForm = (props) => {
             />
             {props.userEmailField &&
                 <input
-                    className="login--form--input"
+                    className={classes.loginForm__input}
                     type="email"
                     name="userEmail"
                     required={true}
@@ -25,16 +27,17 @@ const MyForm = (props) => {
                 />}
             {props.userPasswordField &&
                 <input
-                className="login--form--input"
-                type="password"
-                name="userPassword"
-                placeholder="Enter your password"
-                value={props.inputData.userPassword}
-                onChange={props.handleInputData}
-            />}
+                    className={classes.loginForm__input}
+                    type="password"
+                    name="userPassword"
+                    placeholder="Enter your password"
+                    value={props.inputData.userPassword}
+                    onChange={props.handleInputData}
+                />
+            }
             <MyButton text="Submit"/>
         </form>
     );
 };
 
-export default MyForm;
+export default LoginForm;

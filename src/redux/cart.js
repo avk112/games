@@ -1,6 +1,6 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createSelector, createSlice} from "@reduxjs/toolkit";
 
-const initialState = [];
+const initialState = {};
 
 
 const cartSlice = createSlice({
@@ -11,26 +11,14 @@ const cartSlice = createSlice({
                     addGame:{
                         reducer(state, action)
                         {
-                            return [...state, action.payload]
+                            state[action.payload.game.id]= action.payload.game;
                         },
-                        prepare(game)
-                        {
-                            return {
-                                payload: game
-                            }
-                        }
                     },
-
                     delGame: {
                         reducer(state, action)
                         {
-                            return state.filter((game)=>{return game.id!==action.payload});
+                            delete state[action.payload.id];
                         },
-                        prepare(id) {
-                            return {
-                                payload: id
-                            };
-                        }
                     },
                     cleanCart:{
                         reducer(state)
@@ -42,5 +30,6 @@ const cartSlice = createSlice({
 })
 
 export const {addGame, delGame, cleanCart} = cartSlice.actions;
+export const isGameBought = (state,Id)=>{return state.cart[Id]};
 
 export default cartSlice.reducer;

@@ -1,0 +1,64 @@
+@use "../../../styles" as *;
+
+.orders {
+  @include standartBlock();
+  gap: 1em;
+
+  &__game {
+    @include standartBlock($direction: row);
+
+    &__name {
+      width: 80%;
+      padding: 0;
+      font-size: 1.3em;
+    }
+
+    &__price {
+      font-size: 1.3em;
+      padding: 0;
+    }
+
+    &__del {
+      position: relative;
+      display: flex;
+      width: 3%;
+      cursor: pointer;
+
+      @media screen and (max-device-width: $notepad) {
+        width: 3.5%;
+      }
+
+      @media screen and (max-device-width: $tablet) {
+        width: 4%;
+      }
+
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  &__total {
+    @include standartBlock($direction: row);
+
+    h3 {
+      font-size: 1.3em;
+      font-weight: 600;
+      color: $navColor;
+    }
+  }
+
+  &__empty {
+    font-size: 1.3em;
+  }
+}
+
+
+
+
+
+
+
+
+

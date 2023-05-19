@@ -1,15 +1,15 @@
 import React from "react";
 import {Route, Routes, Navigate} from "react-router-dom"
-import HomePage from "../components/pages/HomePage";
+import HomePage from "../components/pages/homepage/HomePage";
 import TenziesPage from "../components/pages/tenzies/TenziesPage";
 import QuizicalPage from "../components/pages/quizical/QuizicalPage";
 import MemeGeneratorPage from "../components/pages/memeGenerator/MemeGeneratorPage";
 import SpeedTypingPage from "../components/pages/speedTyping/SpeedTypingPage";
 import RPSPage from "../components/pages/rps/RPSPage";
 import ErrorPage from "../components/pages/ErrorPage";
-import LoginPage from "../components/pages/LoginPage";
+import LoginPage from "../components/pages/login/LoginPage";
 import {useSelector} from "react-redux";
-import CartPage from "../components/pages/CartPage";
+import CartPage from "../components/pages/cart/CartPage";
 import Layout from "../components/Layout";
 
 

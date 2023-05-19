@@ -1,0 +1,46 @@
+@use "../../../styles/index" as *;
+
+.homepage {
+  @include standartBlock();
+  padding: 3em 4em;
+  flex: 1 1 auto;
+
+  @media screen and (max-device-width: $tablet){
+    padding: 3em 2em;
+  }
+
+  &__top {
+    @include standartBlock($justify:center);
+    gap: 0.5em;
+    padding: 0 0 2em 0;
+    color: $titleColor;
+
+    @media screen and (max-device-width: $tablet){
+      gap: 1em;
+    }
+
+    &__title {
+      @include standartTitle();
+
+      @media screen and (max-device-width: $tablet){
+        font-size: 1.8em;
+      }
+    }
+  }
+
+  &__gamesArea {
+    position: relative;
+    display: grid;
+    grid-gap: 0.5em;
+    grid-auto-rows: 20vw;
+    grid-template-columns: repeat(4, minmax(50px, 1fr));
+    grid-auto-flow: dense;
+    box-sizing: border-box;
+
+    @media screen and (max-device-width: $tablet) {
+      grid-template-columns: repeat(3, minmax(50px, 1fr));
+      grid-auto-rows: 27vw;
+      grid-gap: 1em;
+    }
+  }
+}

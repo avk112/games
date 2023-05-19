@@ -1,0 +1,28 @@
+@use "../../../styles" as *;
+
+
+.loginForm {
+ @include standartBlock($width: 40%);
+  gap: 1em;
+
+  @media screen and (max-device-width: $tablet){
+    width: 60%;
+  }
+
+  @media screen and (max-device-width: $mobile){
+    width: 80%;
+  }
+
+  &__input {
+    @include standartBlock();
+    border-radius: 5px;
+    border: none;
+    padding: 1em 1.5em;
+    box-shadow: 0px 0px 6px -1px rgba(0,0,0,0.69);
+
+    &:focus-visible {
+      outline: none;
+      box-shadow: 0px 0px 6px -1px $mainColor;
+    }
+  }
+}

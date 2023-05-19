@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import MyForm from "../MyForm";
+import LoginForm from "./LoginForm";
 import {useDispatch} from "react-redux";
-import {addUser} from "../../redux/user";
+import {addUser} from "../../../redux/user";
 
 
 const LoginPage = ()=> {
@@ -31,14 +31,13 @@ const LoginPage = ()=> {
 
 
     return (
-        <div className="login--block">
-            <MyForm
-            inputData={inputData}
-            handleInputData={(e)=>handleInputData(e)}
-            submitForm = {(e)=>submitForm(e)}
-            userEmailField={true}
-            userPasswordField={true}
-
+        <div className={'gamePage'}>
+            <LoginForm
+                inputData={inputData}
+                handleInputData={(e)=>handleInputData(e)}
+                submitForm = {(e)=>submitForm(e)}
+                userEmailField={true}
+                userPasswordField={true}
             />
         </div>
     )

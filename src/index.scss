@@ -90,6 +90,7 @@ code {
       display: flex;
       flex-direction: column;
       text-transform: capitalize;
+      font-size: 1.5em;
       gap: 1em;
     }
   }
@@ -371,78 +372,6 @@ code {
   }
 }
 
-
-
-
-.login--block {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.login--form {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  width: 30%;
-  min-width: 300px;
-  min-height: 300px;
-  padding: 50px;
-}
-
-.login--form--input {
-  width: 100%;
-  height: 2.5rem;
-}
-
-.cart--page {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  flex-direction: column;
-}
-
-.cart--page--game {
-  display: flex;
-  position: relative;
-  width: 100%;
-  height: 200px;
-  /*background-color: #3fd21e;*/
-  padding: 10px;
-  /*justify-content: space-between;*/
-  align-items: center;
-  margin: 5px auto;
-}
-
-.cart--page--game--name {
-  font-size: 1.5em;
-  width: 45%;
-  /*background-color: #AE773E;*/
-  padding: 0 20px;
-}
-
-.cart--page--game--price {
-  width: 30%;
-  /*background-color: #e2992b;*/
-  padding: 0 20px;
-}
-
-.cart--page--game--del {
-  /*background-color: gray;*/
-  text-align: right;
-  cursor: pointer;
-}
-
-.cart--page--game--img {
-  width: 20%;
-  height: fit-content;
-  min-width: 250px;
-  overflow: clip;
-}
 
 .myLoading {
   width: 30%;
