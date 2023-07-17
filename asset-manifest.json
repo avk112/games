@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.css": "/games/static/css/main.133c8c9d.css",
-    "main.js": "/games/static/js/main.dbf565bb.js",
+    "main.css": "/games/static/css/main.ace603cc.css",
+    "main.js": "/games/static/js/main.cb391467.js",
     "static/media/quizical.jpg": "/games/static/media/quizical.800e067dc5ce0e961fa0.jpg",
     "static/media/rpc.jpg": "/games/static/media/rpc.f2c06ae40aeeef87e641.jpg",
     "static/media/speed-typing.jpg": "/games/static/media/speed-typing.3cbf137c9cac5d26f448.jpg",
-    "static/media/memes.jpg": "/games/static/media/memes.ccc7f64edda643511657.jpg",
+    "static/media/memes.jpg": "/games/static/media/memes.ad5e600ec89941d0f0bc.jpg",
     "static/media/tenz.jpg": "/games/static/media/tenz.6854ab5015b4fd78d018.jpg",
     "static/media/rock-big.png": "/games/static/media/rock-big.edbfcba6ba051bfbbfe8.png",
     "static/media/scissors-big.png": "/games/static/media/scissors-big.2ea827e5653589b30b87.png",
@@ -13,11 +13,11 @@
     "static/media/3.png": "/games/static/media/3.cfc0da9c82584e42119a.png",
     "static/media/7.png": "/games/static/media/7.6508032645761947f0f2.png",
     "index.html": "/games/index.html",
-    "main.133c8c9d.css.map": "/games/static/css/main.133c8c9d.css.map",
-    "main.dbf565bb.js.map": "/games/static/js/main.dbf565bb.js.map"
+    "main.ace603cc.css.map": "/games/static/css/main.ace603cc.css.map",
+    "main.cb391467.js.map": "/games/static/js/main.cb391467.js.map"
   },
   "entrypoints": [
-    "static/css/main.133c8c9d.css",
-    "static/js/main.dbf565bb.js"
+    "static/css/main.ace603cc.css",
+    "static/js/main.cb391467.js"
   ]
 }
