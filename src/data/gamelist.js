@@ -4,6 +4,7 @@ export default [
         name: "Tenzies",
         link: "tenzies",
         img: require("../image/tenz.jpg"),
+        imgSmall: require("../image/tenz-small.jpg"),
         price: 15
     },
 
@@ -12,6 +13,7 @@ export default [
         name: "Quizical",
         link: "quizical",
         img: require("../image/quizical.jpg"),
+        imgSmall: require("../image/quizical-small.jpg"),
         price: 10
     },
 
@@ -20,6 +22,7 @@ export default [
         name: "Meme Generator",
         link: "meme-generator",
         img: require("../image/memes.jpg"),
+        imgSmall: require("../image/memes-small.jpg"),
         price: 22
     },
 
@@ -28,6 +31,7 @@ export default [
         name: "Speed Typing",
         link: "speed-typing",
         img: require("../image/speed-typing.jpg"),
+        imgSmall: require("../image/speed-typing-small.jpg"),
         price: 9
     },
 
@@ -36,6 +40,7 @@ export default [
         name: "RPS",
         link: "rock-paper-scissors",
         img: require("../image/rpc.jpg"),
+        imgSmall: require("../image/rpc-small.jpg"),
         price: 11
     }
 ]
